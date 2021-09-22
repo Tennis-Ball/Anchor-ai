@@ -1,0 +1,39 @@
+{% extends "mysite/home.html" %}
+{% load static %}
+{% block head %}
+<header class="w3-container w3-red w3-center" style="padding:64px 16px">
+  <h1 class="w3-margin w3-jumbo">About ANCHOR</h1>
+</header>
+{% endblock head %}
+{% block info %}
+<div id="get_started">
+    <div class="w3-row-padding w3-padding-64 w3-container">
+      <div class="w3-content">
+        <div class="w3-twothird">
+          <h1>What is Anchor?</h1>
+          <h5 style="padding-bottom: 32">Anchor is an online platform that aims to provide its users with accurate machine learning predictions
+          on stock market prices. Anchor provides a predicted closing price for today as well as the accuracy rating and expected price changes.</h5>
+          <h1>How does it work?</h1>
+          <h5>Behind the scenes Anchor runs a training program that takes in the symbol's entire history of open prices, close prices,
+          volumes, daily highs, and daily lows to output a predicted closing price for today. It trains a multiple regression model
+          with a large neural network for 10 iterations for each symbol to provide the most accurate predictions.</h5>
+          {% with "mysite/"|add:plot as plot_url %}
+          <a href="#_Share!"><img src="{% static plot_url %}" alt="Stock price vs. predictions graph" style="width: 550px; height: 400px;"></a>
+            {% endwith %}
+          <h6><b>^ TSLA prediction accuracy over 300 simulated days. As the number of data points increases, the difference between predicted and actual approaches 0. ^</b></h6>
+          <h3>COMING SOON!</h3>
+          <h5>
+            A subscription service will soon be implemented to provide its subscribers with predictions of higher accuracy, weekly expectations,
+            predicted market movers, 1 year movement plans, and much more.
+          </h5>
+          <h3> </h3>
+          <h5>If you are interested in how this platform was built, check out its <a href="https://github.com/Tennis-Ball/Anchor-ai" style="color: blue">Github repository</a></h5>
+            <div id="graph_input"></div>
+        </div>
+        <div class="w3-third w3-center">
+          <i class="fa fa-anchor w3-padding-64 w3-text-red"></i>
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock info %}
